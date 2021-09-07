@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<style>
+  * {
+    margin: 0px;
+    padding: 0px;
+  }
+  body{
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }    
+  .box{
+		width: 200px;
+		height: 200px;
+	}
+
+	.timerBox{
+		width: 200px;
+		outline: 2px solid black;
+	}
+	.timerBox #time{
+		font-size: 30pt;
+		color: #4C4C4C;
+		text-align: center;
+		font-family: sans-serif;
+	}
+  .btnBox{
+		margin: 20px auto;
+		text-align: center;
+	}
+  button{
+		text-align: center;
+		margin: 0px 5px;
+		font-size: 20pt;
+		cursor: pointer;    
+	}  
+</style>  
+<script>
+var startTime;
+var timer;
+
+function startTimer(){
+  startTime = new Date().getTime();
+
+  timer = setInterval(function(){
+    var nowTime = new Date().getTime();
+    var term = new Date(nowTime - startTime);
+
+    var sec = term.getMinutes() * 60 + term.getSeconds();
+    var ms = "000" + term.getMilliseconds();
+    ms = ms.substring(ms.length-3, ms.length);
+
+
+    document.getElementById("time").innerHTML = sec + "." + ms;
+  }, 1);  
+}  
+
+function stopTimer(){
+  if(timer){
+    clearInterval(timer);
+  }
+}
+</script>
+</head>
+<body>
+
+<div class="box">
+  <div class="timerBox">
+    <div id="time">0.000</div>
+  </div>
+  <div class="btnBox">
+    <button onclick="startTimer()">시작</button>
+    <button onclick="stopTimer()">멈춤</button>
+  </div>
+</div>  
+
+</body>
+</html>
