@@ -16,6 +16,7 @@
 #include <System.Actions.hpp>
 //---------------------------------------------------------------------------
 #include <time.h>
+#include <FMX.Effects.hpp>
 //---------------------------------------------------------------------------
 class TfrmMain : public TForm
 {
@@ -24,7 +25,7 @@ __published:	// IDE-managed Components
 	TTabItem *tabStart;
 	TTabItem *tabGame;
 	TLayout *Layout1;
-	TCornerButton *CornerButton1;
+	TCornerButton *btnStart;
 	TRectangle *Rectangle1;
 	TActionList *ActionList1;
 	TChangeTabAction *ChangeTabAction;
@@ -35,18 +36,36 @@ __published:	// IDE-managed Components
 	TTimer *Timer;
 	TButton *btnNum1;
 	TStyleBook *StyleBook1;
-	TButton *Button1;
+	TButton *btnCancelGame;
 	TTabItem *tabFinish;
+	TRectangle *S;
+	TRoundRect *RoundRect1;
+	TText *Text1;
+	TText *txtScore;
+	TShadowEffect *ShadowEffect1;
+	TButton *btnRestart;
 	void __fastcall FormCreate(TObject *Sender);
-	void __fastcall CornerButton1Click(TObject *Sender);
-	void __fastcall btnNum1Click(TObject *Sender);
+	void __fastcall btnStartClick(TObject *Sender);
+	void __fastcall btnNumClick(TObject *Sender);
 	void __fastcall TimerTimer(TObject *Sender);
+	void __fastcall btnRestartClick(TObject *Sender);
+	void __fastcall btnCancelGameClick(TObject *Sender);
 private:	// User declarations
-    clock_t FStartTime;
-	void __fastcall StartGame();
-	void __fastcall ShowGamePane();
-    void __fastcall ShowStartPane();
+    clock_t FStartTime; // Stopwatch
+
+    const int kMaximumNum = 50;
+	int FCurrentNum;
+	int FDisplayNum;
+    long double FDuration;
+
 	void __fastcall InitGame();
+	void __fastcall StartGame();
+	void __fastcall CancelGame();
+	void __fastcall CompleteGame();
+
+	void __fastcall ShowGamePane();
+	void __fastcall ShowStartPane();
+	void __fastcall ShowFinishPane();
 
     void __fastcall test();
 
