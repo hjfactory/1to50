@@ -32,13 +32,6 @@ void __fastcall TfrmMain::FormCreate(TObject *Sender)
 
 	Timer->Enabled = False;
 }
-
-//---------------------------------------------------------------------------
-
-void __fastcall TfrmMain::btnStartClick(TObject *Sender)
-{
-	StartGame();
-}
 //---------------------------------------------------------------------------
 
 void __fastcall TfrmMain::StartGame()
@@ -85,6 +78,7 @@ void __fastcall TfrmMain::GenerateNumButtons()
 	for(int i=1; i<=nums.size(); i++){
         nums[i-1] = i;
 	}
+
     // ÆÐ ¼¯±â
 	unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
 	shuffle(nums.begin(), nums.end(), std::default_random_engine(seed));
@@ -151,6 +145,12 @@ void __fastcall TfrmMain::TimerTimer(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TfrmMain::btnStartClick(TObject *Sender)
+{
+	StartGame();
+}
+//---------------------------------------------------------------------------
+
 void __fastcall TfrmMain::btnRestartClick(TObject *Sender)
 {
 	StartGame();
@@ -161,6 +161,21 @@ void __fastcall TfrmMain::btnRestartClick(TObject *Sender)
 void __fastcall TfrmMain::btnCancelGameClick(TObject *Sender)
 {
 	CancelGame();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfrmMain::lytBoardResize(TObject *Sender)
+{
+	int size = (lytBoard->Height > lytBoard->Width) ? lytBoard->Width : lytBoard->Height;
+	size = size - 20;
+	if(size > 500) {
+		size = 500;
+	}
+
+	GridLayout->Width = size;
+	GridLayout->Height = size;
+	GridLayout->ItemWidth = size / 5;
+	GridLayout->ItemHeight = size / 5;
 }
 //---------------------------------------------------------------------------
 

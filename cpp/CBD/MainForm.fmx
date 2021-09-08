@@ -3,7 +3,7 @@ object frmMain: TfrmMain
   Top = 0
   Caption = '1 to 50'
   ClientHeight = 630
-  ClientWidth = 519
+  ClientWidth = 520
   StyleBook = StyleBook1
   FormFactor.Width = 320
   FormFactor.Height = 480
@@ -12,24 +12,24 @@ object frmMain: TfrmMain
   DesignerMasterStyle = 0
   object TabControl: TTabControl
     Align = Client
-    Size.Width = 519.000000000000000000
+    Size.Width = 520.000000000000000000
     Size.Height = 630.000000000000000000
     Size.PlatformDefault = False
-    TabIndex = 0
+    TabIndex = 1
     TabOrder = 1
     TabPosition = PlatformDefault
     Sizes = (
-      519s
+      520s
       604s
-      519s
+      520s
       604s
-      519s
+      520s
       604s)
     object tabStart: TTabItem
       CustomIcon = <
         item
         end>
-      IsSelected = True
+      IsSelected = False
       Size.Width = 63.000000000000000000
       Size.Height = 26.000000000000000000
       Size.PlatformDefault = False
@@ -41,7 +41,7 @@ object frmMain: TfrmMain
       object Rectangle1: TRectangle
         Align = Client
         Fill.Color = claCornflowerblue
-        Size.Width = 519.000000000000000000
+        Size.Width = 520.000000000000000000
         Size.Height = 604.000000000000000000
         Size.PlatformDefault = False
         Stroke.Kind = None
@@ -75,7 +75,7 @@ object frmMain: TfrmMain
       CustomIcon = <
         item
         end>
-      IsSelected = False
+      IsSelected = True
       Size.Width = 70.000000000000000000
       Size.Height = 26.000000000000000000
       Size.PlatformDefault = False
@@ -87,57 +87,76 @@ object frmMain: TfrmMain
       object Rectangle2: TRectangle
         Align = Client
         Fill.Color = claBurlywood
-        Size.Width = 519.000000000000000000
+        Size.Width = 520.000000000000000000
         Size.Height = 604.000000000000000000
         Size.PlatformDefault = False
         Stroke.Kind = None
-        object GridLayout: TGridLayout
-          Align = Center
-          ItemHeight = 100.000000000000000000
-          ItemWidth = 100.000000000000000000
-          Orientation = Horizontal
-          Size.Width = 500.000000000000000000
-          Size.Height = 500.000000000000000000
+        object lytGameTop: TLayout
+          Align = Top
+          Size.Width = 520.000000000000000000
+          Size.Height = 69.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
-          object btnNum1: TButton
-            Size.Width = 100.000000000000000000
-            Size.Height = 100.000000000000000000
-            Size.PlatformDefault = False
-            StyleLookup = 'NumButton'
-            TabOrder = 0
-            Text = '00'
-            OnClick = btnNumClick
-          end
-        end
-        object Layout2: TLayout
-          Align = Top
-          Size.Width = 519.000000000000000000
-          Size.Height = 50.000000000000000000
-          Size.PlatformDefault = False
-          TabOrder = 1
           object txtRunTime: TText
             Align = HorzCenter
             Margins.Right = 80.000000000000000000
-            Position.X = 163.000000000000000000
+            Position.X = 164.000000000000000000
             Size.Width = 192.000000000000000000
-            Size.Height = 50.000000000000000000
+            Size.Height = 69.000000000000000000
             Size.PlatformDefault = False
             Text = '0.000'
             TextSettings.Font.Family = '(Default)'
             TextSettings.Font.Size = 30.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            object FloatAnimation1: TFloatAnimation
+              AutoReverse = True
+              Enabled = True
+              Duration = 1.000000000000000000
+              Inverse = True
+              Loop = True
+              PropertyName = 'Font.Size'
+              StartValue = 30.000000000000000000
+              StopValue = 50.000000000000000000
+            end
           end
           object btnCancelGame: TButton
             Align = Left
             StyledSettings = [Family, Style, FontColor]
             Size.Width = 80.000000000000000000
-            Size.Height = 50.000000000000000000
+            Size.Height = 69.000000000000000000
             Size.PlatformDefault = False
             StyleLookup = 'transparentbutton'
             TabOrder = 0
             Text = '< Back'
             TextSettings.Font.Size = 20.000000000000000000
             OnClick = btnCancelGameClick
+          end
+        end
+        object lytBoard: TLayout
+          Align = Client
+          Size.Width = 520.000000000000000000
+          Size.Height = 535.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          OnResize = lytBoardResize
+          object GridLayout: TGridLayout
+            Align = Center
+            ItemHeight = 100.000000000000000000
+            ItemWidth = 100.000000000000000000
+            Orientation = Horizontal
+            Size.Width = 500.000000000000000000
+            Size.Height = 500.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            object btnNum: TButton
+              Size.Width = 100.000000000000000000
+              Size.Height = 100.000000000000000000
+              Size.PlatformDefault = False
+              StyleLookup = 'NumButton'
+              TabOrder = 0
+              Text = '00'
+              OnClick = btnNumClick
+            end
           end
         end
       end
@@ -158,14 +177,14 @@ object frmMain: TfrmMain
       object S: TRectangle
         Align = Top
         Fill.Color = claPlum
-        Size.Width = 519.000000000000000000
+        Size.Width = 520.000000000000000000
         Size.Height = 209.000000000000000000
         Size.PlatformDefault = False
         Stroke.Kind = None
         object RoundRect1: TRoundRect
           Anchors = [akBottom]
           Fill.Color = claLavenderblush
-          Position.X = 157.159790039062500000
+          Position.X = 157.646606445312500000
           Position.Y = 176.000000000000000000
           Size.Width = 191.000000000000000000
           Size.Height = 65.000000000000000000
@@ -186,6 +205,14 @@ object frmMain: TfrmMain
             Opacity = 0.600000023841857900
             ShadowColor = claBlack
           end
+          object btnRestart: TButton
+            Position.X = 55.000000000000000000
+            Position.Y = 83.000000000000000000
+            StyleLookup = 'refreshtoolbutton'
+            TabOrder = 1
+            Text = 'Button1'
+            OnClick = btnRestartClick
+          end
         end
         object Text1: TText
           Align = Center
@@ -197,14 +224,6 @@ object frmMain: TfrmMain
           TextSettings.Font.Size = 50.000000000000000000
           TextSettings.Font.StyleExt = {00070000000000000004000000}
         end
-      end
-      object btnRestart: TButton
-        Position.X = 216.000000000000000000
-        Position.Y = 270.000000000000000000
-        StyleLookup = 'refreshtoolbutton'
-        TabOrder = 1
-        Text = 'Button1'
-        OnClick = btnRestartClick
       end
     end
   end

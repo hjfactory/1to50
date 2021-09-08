@@ -17,6 +17,7 @@
 //---------------------------------------------------------------------------
 #include <time.h>
 #include <FMX.Effects.hpp>
+#include <FMX.Ani.hpp>
 //---------------------------------------------------------------------------
 class TfrmMain : public TForm
 {
@@ -31,10 +32,10 @@ __published:	// IDE-managed Components
 	TChangeTabAction *ChangeTabAction;
 	TRectangle *Rectangle2;
 	TGridLayout *GridLayout;
-	TLayout *Layout2;
+	TLayout *lytGameTop;
 	TText *txtRunTime;
 	TTimer *Timer;
-	TButton *btnNum1;
+	TButton *btnNum;
 	TStyleBook *StyleBook1;
 	TButton *btnCancelGame;
 	TTabItem *tabFinish;
@@ -44,12 +45,15 @@ __published:	// IDE-managed Components
 	TText *txtScore;
 	TShadowEffect *ShadowEffect1;
 	TButton *btnRestart;
+	TLayout *lytBoard;
+	TFloatAnimation *FloatAnimation1;
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall btnStartClick(TObject *Sender);
 	void __fastcall btnNumClick(TObject *Sender);
 	void __fastcall TimerTimer(TObject *Sender);
 	void __fastcall btnRestartClick(TObject *Sender);
 	void __fastcall btnCancelGameClick(TObject *Sender);
+	void __fastcall lytBoardResize(TObject *Sender);
 private:	// User declarations
     clock_t FStartTime; // Stopwatch
 
