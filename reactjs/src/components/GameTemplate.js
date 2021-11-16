@@ -1,5 +1,4 @@
 import React from 'react'
-import "./GameTemplate.css"
 
 const GameTemplate = ({ children }) => {
   return (

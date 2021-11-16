@@ -1,9 +1,10 @@
 import React from 'react'
 
-const Score = () => {
+const Score = ({height}) => {
+  let score = "0.000";
   return (
-    <div>
-      
+    <div className="score" style={{height: height}}>
+      {score}
     </div>
   )
 }

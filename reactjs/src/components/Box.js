@@ -1,10 +1,22 @@
 import React from 'react'
-import "./Box.css";
+import Cells from './Cells'
 
-const Box = () => {
+const Box = ({width}) => {
   return (
-    <div className="box">
-      
+    <div className="box" style={{width}}>
+      <Cells />
+      <Cells />
+      <Cells />
+      <Cells />
+      <Cells />
+      <Cells />
+      <Cells />
+      <Cells />
+      <Cells />
+      <Cells />
+      <Cells />
+      <Cells />
+      <Cells />
     </div>
   )
 }
