@@ -50,18 +50,48 @@ body {
   position: relative;
 
   min-width: 350px;
+  min-height: 350px;
   margin: 0.1rem;
-}
 
+  display: flex;
+  flex-direction: column;
+}
+/* 
 .box:after {
   content: "";
   display: block;
   padding-bottom: 100%;
+} */
+
+.row {
+  /* height: 100px; */
+  height: 20%;
+  width: 100%;
+  border-width: 1px;
 }
 
-.cell {
-  display: inline-block;
+.col {
   width: 20%;
-  height: 20%;
+  height: 100%;
+  display: inline-block;
+
   background-color: orange;
+
+  border-width: 0px;
+  border-radius: 20px;
+}
+
+.col-text {
+  /* background-color: yellowgreen; */
+  /* color: #FFD1AA; */
+  font-weight: 400;
+  font-size: 1.8em;
+  user-select: none;
+
+  /* display: -webkit-flex; */
+  display: flex;
+  align-items: center;
+  
+  height: 100%;
+  width: 100%;
 }

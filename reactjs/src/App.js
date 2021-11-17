@@ -7,7 +7,21 @@ import Box from './components/Box';
 
 function App() {
   const scoreHeight = 100;
-  const [boxWidth, setBoxWidth] = useState(500);
+  const [boxSize, setBoxSize] = useState(500);
+
+  function shuffle(array) { 
+    array.sort(() => Math.random() - 0.5); 
+  }
+
+  let nums = Array.from({length: 25}, (v, i) => i+1);
+  shuffle(nums);
+  // for(var i=0; i<nums.length; i++){
+  //   var idx = Math.floor(Math.random() * nums.length);
+
+  //   cols[i].textContent = (nums[idx]);
+  //   nums.splice(idx, 1);
+  // }
+
 
   const handleResize = () => {
     const W = document.documentElement.clientWidth;
@@ -16,15 +30,15 @@ function App() {
     console.log(W, H);
 
     if(W > H + scoreHeight) {
-      setBoxWidth(H - scoreHeight - 100);    
+      setBoxSize(H - scoreHeight - 100);    
     }
     else {
-      setBoxWidth(W - 100);    
+      setBoxSize(W - 100);    
     }
-
   }
 
   useEffect(() => {
+    handleResize();
     window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('resize', handleResize);
@@ -34,7 +48,7 @@ function App() {
   return (
     <GameTemplate>
       <Score height={ scoreHeight } />
-      <Box width={ boxWidth } />
+      <Box size={ boxSize } nums={nums} />
     </GameTemplate>
   );
 }

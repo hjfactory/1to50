@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Cells = () => {
+const Cell = () => {
   return (
     <div className="cell">
       
@@ -8,4 +8,4 @@ const Cells = () => {
   )
 }
 
-export default Cells
+export default Cell

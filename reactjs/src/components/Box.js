@@ -1,22 +1,22 @@
 import React from 'react'
-import Cells from './Cells'
 
-const Box = ({width}) => {
+const Box = ({size, nums}) => {
+  let rows = [];
+  for(var i=0; i<5; i++){
+    let cols = [];
+    for(var j=0; j<5; j++){
+      cols.push(
+        <div className="col">
+          <div className="col-text">{nums[i*5+j]}</div>
+        </div>
+      )
+    }
+    rows.push(<div className="row">{cols}</div>)
+  }
+
   return (
-    <div className="box" style={{width}}>
-      <Cells />
-      <Cells />
-      <Cells />
-      <Cells />
-      <Cells />
-      <Cells />
-      <Cells />
-      <Cells />
-      <Cells />
-      <Cells />
-      <Cells />
-      <Cells />
-      <Cells />
+    <div className="box" style={{width: size, height: size}}>
+      {rows}
     </div>
   )
 }
