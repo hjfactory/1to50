@@ -1,16 +1,20 @@
 import React, { useState, useMemo  } from 'react'
 
+import Tile from './Tile';
+
 const Box = ({size, nums}) => {
   const [tiles, setTiles] = useState([]);
+
+  // const handleTileClick = (e) => {
+  //   if(e.target)
+  // };
 
   useMemo (
     () => {
       let arr = []
       nums.forEach((item, index) => {
-        arr.push(<div className="tile" key={index}>{nums[index]}</div>);
+        arr.push(<Tile key={index} id={item} />)
       });
-
-      console.log("box", nums);
       setTiles(arr);
     },
     [nums],
