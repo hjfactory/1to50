@@ -1,22 +1,24 @@
-import React from 'react'
+import React, { useState, useMemo  } from 'react'
 
 const Box = ({size, nums}) => {
-  let rows = [];
-  for(var i=0; i<5; i++){
-    let cols = [];
-    for(var j=0; j<5; j++){
-      cols.push(
-        <div className="col">
-          <div className="col-text">{nums[i*5+j]}</div>
-        </div>
-      )
-    }
-    rows.push(<div className="row">{cols}</div>)
-  }
+  const [tiles, setTiles] = useState([]);
+
+  useMemo (
+    () => {
+      let arr = []
+      nums.forEach((item, index) => {
+        arr.push(<div className="tile" key={index}>{nums[index]}</div>);
+      });
+
+      console.log("box", nums);
+      setTiles(arr);
+    },
+    [nums],
+  );
 
   return (
     <div className="box" style={{width: size, height: size}}>
-      {rows}
+      {tiles}
     </div>
   )
 }
