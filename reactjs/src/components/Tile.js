@@ -1,19 +1,18 @@
 import React, { useState } from 'react'
-import { useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 
-import { stepSelector, nextStepSelector } from '../recoil/atoms/gameAtom';
+import { stepState, nextStepSelector } from '../recoil/atoms/gameAtom';
 
 const Tile = ({ id }) => {
   const [num, setNum] = useState(id);
 
-  const step = useRecoilValue(stepSelector);
+  const [step, setStep] = useRecoilState(stepState);
   const nextStep = useRecoilValue(nextStepSelector);
 
   const handleStep = () => {
-    let s = step;
-    console.log('start handleStep', id, s)
-    if(id === s){
+    if(num === step){
       let nextNum = nextStep;
+      setStep(step + 1);
 
       console.log('nextNum', nextNum, 10)
       setNum(nextNum);

@@ -5,29 +5,31 @@ export const stepState = atom({
   default: 1
 });
 
+export const nextStepState = atom({
+  key: 'nextStepState', 
+  default: 26
+});
+
 const TILE_COUNT = 25;
 const MAX_NUM = 50;
 
-var currentStep = 1;
+// var currentStep = 1;
 
-export const stepSelector = selector({
-  key: 'stepSelector', 
-  get: ({get}) => {
-    console.log('stepSelector', currentStep)
-    return currentStep > MAX_NUM ? '' : currentStep
-  },
-  // get: ({get}) => (get(stepState) > MAX_NUM ? '' : get(stepState)),
-});
+// export const stepSelector = selector({
+//   key: 'stepSelector', 
+//   get: ({get}) => (get(stepState) > MAX_NUM ? '' : get(stepState)),
+//   set: ({get}, {set}) => {
+
+//   }
+// });
 
 export const nextStepSelector = selector({
   key: 'nextStepSelector', 
   get: ({get}) => {
     console.log('run next step!!!');
-    let nextStep = MAX_NUM + currentStep;
-
-    currentStep++;
+    let nextStep = TILE_COUNT + get(stepState);
     
-    console.log('nextStepSelector', currentStep);
+    // console.log('nextStepSelector', currentStep);
 
     if(nextStep > MAX_NUM ) {
       return '';
