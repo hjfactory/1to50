@@ -10,8 +10,6 @@ function shuffle(array) {
 let nums = Array.from({length: 25}, (v, i) => i+1);
 shuffle(nums);
 
-console.log('nums', nums);
-
 const scoreHeight = 100;
 
 const Game = () => {

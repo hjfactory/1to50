@@ -12,10 +12,9 @@ const Tile = ({ id }) => {
   const handleStep = () => {
     if(num === step){
       let nextNum = nextStep;
-      setStep(step + 1);
 
-      console.log('nextNum', nextNum, 10)
       setNum(nextNum);
+      setStep(step + 1);
     }
   }
 
