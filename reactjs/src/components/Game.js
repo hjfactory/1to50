@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import Score from './Score';
+import Time from './Time';
 import Box from './Box';
 
 
@@ -40,7 +40,7 @@ const Game = () => {
 
   return (
     <main className="game">
-      <Score height={ scoreHeight } />
+      <Time height={ scoreHeight } />
       <Box size={ boxSize } nums={nums} />
     </main>
   )
