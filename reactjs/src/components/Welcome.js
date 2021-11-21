@@ -1,12 +1,19 @@
 import React from 'react'
+import { useSetRecoilState } from 'recoil';
+import { modeState, MODE_GAME } from '../recoil/atoms/gameAtom';
+
+import "./Welcome.css";
 
 const Welcome = () => {
-  const handleStart = () => {
+  const setMode = useSetRecoilState(modeState);
 
+  const handleStart = () => {
+    setMode(MODE_GAME);
   }
   
   return (
-    <div>
+    <div className="welcome">
+      <div>1 to 50</div>
       <button onClick={handleStart}>시작</button>
     </div>
   )

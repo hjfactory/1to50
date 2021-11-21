@@ -8,7 +8,7 @@ import {RecoilRoot} from 'recoil';
 function App() {
   return (
     <RecoilRoot>
-      <Game />
+      <Game />   
     </RecoilRoot>
     
   );

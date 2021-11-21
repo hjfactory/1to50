@@ -33,6 +33,12 @@ body {
   /* margin-bottom: 2rem; */
 }
 
+.cancel {
+  text-align: center;
+  background-color: aliceblue;
+  cursor: pointer;
+}
+
 .box {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
