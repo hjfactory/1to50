@@ -13,8 +13,10 @@ const Welcome = () => {
   
   return (
     <div className="welcome">
-      <div>1 to 50</div>
-      <button onClick={handleStart}>시작</button>
+      <div className="panel">
+        <div className="header">1 to 50</div>
+        <button onClick={handleStart}>시작</button>
+      </div>
     </div>
   )
 }
